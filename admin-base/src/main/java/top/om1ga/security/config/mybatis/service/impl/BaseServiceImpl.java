@@ -1,4 +1,4 @@
-package top.om1ga.mybatis.service.impl;
+package top.om1ga.security.config.mybatis.service.impl;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import top.om1ga.common.query.Query;
-import top.om1ga.mybatis.service.BaseService;
+import top.om1ga.security.config.mybatis.service.BaseService;
 
 
 /**

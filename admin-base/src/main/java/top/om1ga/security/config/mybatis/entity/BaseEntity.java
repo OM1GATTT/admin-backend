@@ -1,4 +1,4 @@
-package top.om1ga.mybatis.entity;
+package top.om1ga.security.config.mybatis.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;

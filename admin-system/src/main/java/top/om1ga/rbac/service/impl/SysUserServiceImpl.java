@@ -3,7 +3,7 @@ package top.om1ga.rbac.service.impl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import top.om1ga.mybatis.service.impl.BaseServiceImpl;
+import top.om1ga.security.config.mybatis.service.impl.BaseServiceImpl;
 import top.om1ga.rbac.dao.SysUserDao;
 import top.om1ga.rbac.entity.SysUserEntity;
 import top.om1ga.rbac.service.SysUserService;

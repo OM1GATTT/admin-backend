@@ -12,6 +12,7 @@
         <module>admin-base</module>
         <module>admin-system</module>
         <module>admin-server</module>
+        <module>admin-biz</module>
     </modules>
 
     <modelVersion>4.0.0</modelVersion>

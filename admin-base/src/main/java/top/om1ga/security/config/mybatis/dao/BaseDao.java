@@ -1,4 +1,4 @@
-package top.om1ga.mybatis.dao;
+package top.om1ga.security.config.mybatis.dao;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
