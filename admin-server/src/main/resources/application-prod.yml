@@ -11,7 +11,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/db_admin?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
     username: root
-    password: 123456
+    password: root
     hikari:
       connection-timeout: 30000     # 等待连接池分配链接的最大时长（毫秒），超过这个时长还没有可用的连接则发生 SQLException，默认：30 秒
       minimum-idle: 2               # 最小空闲连接数
@@ -27,9 +27,9 @@ storage:
   config:
     # 存储类型：local、aliyun、minio
     type: minio
-    domain: http://43.137.12.232:9000
+    domain: http://10.20.236.110:9000
   minio:
     access-key: Y2cCKbj5iDIVrHK2
     secret-key: 6djz6lV784p2JkQB5Pvig1SWtiBVhXmP
-    end-point: http://43.137.12.232:9000
+    end-point: http://10.20.236.110:9000
     bucket-name: images

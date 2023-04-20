@@ -15,7 +15,7 @@
     </modules>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>top.mqxu</groupId>
+    <groupId>top.om1ga</groupId>
     <artifactId>admin-template</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
