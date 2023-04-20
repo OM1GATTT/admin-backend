@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.security.core.Authentication;
 import top.om1ga.common.exception.ServerException;
 import top.om1ga.rbac.service.SysAuthService;
+import top.om1ga.rbac.service.SysCaptchaService;
 import top.om1ga.rbac.vo.SysAccountLoginVO;
 import top.om1ga.rbac.vo.SysTokenVO;
 import top.om1ga.security.cache.TokenStoreCache;
@@ -26,8 +27,14 @@ public class SysAuthServiceImpl implements SysAuthService {
     private final TokenStoreCache tokenStoreCache;
     private final AuthenticationManager authenticationManager;
 
+    private final SysCaptchaService sysCaptchaService;
     @Override
     public SysTokenVO loginByAccount(SysAccountLoginVO login) {
+//        验证码校验
+        boolean flag = sysCaptchaService.validate(login.getKey(), login.getCaptcha());
+        if (!flag){
+            throw new ServerException("验证码错误");
+        }
 
         Authentication authentication;
         try {

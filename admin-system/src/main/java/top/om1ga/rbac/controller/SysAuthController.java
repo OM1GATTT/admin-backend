@@ -7,7 +7,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import top.om1ga.common.utils.Result;
 import top.om1ga.rbac.service.SysAuthService;
+import top.om1ga.rbac.service.SysCaptchaService;
 import top.om1ga.rbac.vo.SysAccountLoginVO;
+import top.om1ga.rbac.vo.SysCaptchaVO;
 import top.om1ga.rbac.vo.SysTokenVO;
 import top.om1ga.security.utils.TokenUtils;
 
@@ -22,6 +24,15 @@ import top.om1ga.security.utils.TokenUtils;
 @AllArgsConstructor
 public class SysAuthController {
     private final SysAuthService sysAuthService;
+
+    private final SysCaptchaService sysCaptchaService;
+
+    @GetMapping("captcha")
+    @Operation(summary = "验证码")
+    public Result<SysCaptchaVO> captcha(){
+        SysCaptchaVO captchaVO = sysCaptchaService.generate();
+        return Result.ok(captchaVO);
+    }
 
     @PostMapping("login")
     @Operation(summary = "账号密码登录")
