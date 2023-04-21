@@ -1,4 +1,4 @@
-package top.om1ga.system.rbac.service.impl;
+package top.om1ga.rbac.service.impl;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -31,6 +31,8 @@ public class SysUserDetailsServiceImpl implements SysUserDetailsService {
         if (userEntity.getStatus() == UserStatusEnum.DISABLE.getValue()) {
             userDetail.setEnabled(false);
         }
+
+//        用户权限列表
 
         Set<String> authoritySet = new HashSet<>();
         userDetail.setAuthoritySet(authoritySet);

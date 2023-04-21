@@ -1,6 +1,5 @@
 package top.om1ga.rbac.vo;
 
-import cn.hutool.core.lang.tree.TreeNode;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Min;
@@ -9,6 +8,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.validator.constraints.Range;
 import top.om1ga.common.utils.DateUtils;
+import top.om1ga.common.utils.TreeNode;
 
 import java.util.Date;
 

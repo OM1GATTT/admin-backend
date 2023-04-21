@@ -1,4 +1,4 @@
-package top.om1ga.security.config.mybatis.handler;
+package top.om1ga.mybatis.handler;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;

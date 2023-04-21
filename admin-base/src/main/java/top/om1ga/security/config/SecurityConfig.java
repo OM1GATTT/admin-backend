@@ -51,10 +51,14 @@ public class SecurityConfig {
     }
 
 
-
+    /**
+     * 账号密码进行登录认证
+     * @return
+     */
     @Bean
     public AuthenticationManager authenticationManager() {
         List<AuthenticationProvider> providerList = new ArrayList<>();
+//        账号密码登录
         providerList.add(daoAuthenticationProvider());
 
         ProviderManager providerManager = new ProviderManager(providerList);
@@ -70,7 +74,9 @@ public class SecurityConfig {
         String[] permits = permitList.toArray(new String[0]);
 
         http
+//                要把 token 过滤器配置在 UsernamePasswordAuthenticationFilter 前面，就可以支持 token 认证了
                 .addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class)
+//                STATELESS 无状态，前后端分离开发配置，前后端开发不适用Session
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authorizeHttpRequests(auth -> auth
                         .requestMatchers(permits).permitAll()

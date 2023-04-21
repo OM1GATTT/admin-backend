@@ -3,7 +3,7 @@ package top.om1ga.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import top.om1ga.security.config.mybatis.entity.BaseEntity;
+import top.om1ga.mybatis.entity.BaseEntity;
 
 /**
  * @author: OM1GA

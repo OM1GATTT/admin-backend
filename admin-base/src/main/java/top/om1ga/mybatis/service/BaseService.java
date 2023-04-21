@@ -1,4 +1,4 @@
-package top.om1ga.security.config.mybatis.service;
+package top.om1ga.mybatis.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 

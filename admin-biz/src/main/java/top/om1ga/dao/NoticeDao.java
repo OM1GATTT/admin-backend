@@ -2,7 +2,7 @@ package top.om1ga.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import top.om1ga.entity.NoticeEntity;
-import top.om1ga.security.config.mybatis.dao.BaseDao;
+import top.om1ga.mybatis.dao.BaseDao;
 
 /**
  * @author: OM1GA

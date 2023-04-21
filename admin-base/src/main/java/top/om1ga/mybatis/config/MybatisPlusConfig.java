@@ -1,10 +1,10 @@
-package top.om1ga.security.config.mybatis.config;
+package top.om1ga.mybatis.config;
 
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import top.om1ga.security.config.mybatis.handler.FieldMetaObjectHandler;
+import top.om1ga.mybatis.handler.FieldMetaObjectHandler;
 
 /**
  * MP 配置

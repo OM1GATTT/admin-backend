@@ -14,6 +14,8 @@ import top.om1ga.query.NoticeQuery;
 import top.om1ga.service.NoticeService;
 import top.om1ga.vo.NoticeVO;
 
+import java.util.List;
+
 /**
  * @author: OM1GA
  * @version: 1.0
@@ -34,5 +36,12 @@ public class NoticeController {
     public Result<PageResult<NoticeVO>> page (@ParameterObject @Valid NoticeQuery query){
         PageResult<NoticeVO> page = noticeService.page(query);
         return Result.ok(page);
+    }
+
+    @GetMapping("list")
+    @Operation(summary = "通知列表")
+    public Result<List<NoticeVO>> list(){
+        List<NoticeVO> list = noticeService.getList();
+        return Result.ok(list);
     }
 }
