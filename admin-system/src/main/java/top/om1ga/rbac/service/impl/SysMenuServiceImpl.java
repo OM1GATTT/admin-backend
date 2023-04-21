@@ -2,6 +2,7 @@ package top.om1ga.rbac.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import top.om1ga.common.constant.Constant;
 import top.om1ga.common.utils.TreeUtils;
@@ -27,6 +28,7 @@ import java.util.Set;
  */
 @Service
 @AllArgsConstructor
+@Slf4j
 public class SysMenuServiceImpl extends BaseServiceImpl<SysMenuDao, SysMenuEntity> implements SysMenuService {
 
     @Override
@@ -41,10 +43,14 @@ public class SysMenuServiceImpl extends BaseServiceImpl<SysMenuDao, SysMenuEntit
 //        系统管理员，拥有最高权限
         if (user.getSuperAdmin().equals(SuperAdminEnum.YES.getValue())) {
             menuList = baseMapper.getMenuList(type);
+            log.info(menuList.toString());
         } else {
             menuList = baseMapper.getUserMenuList(user.getId(), type);
+            log.info(menuList.toString());
         }
-        return TreeUtils.build(SysMenuConvert.INSTANCE.convertList(menuList));
+        List<SysMenuVO> build = TreeUtils.build(SysMenuConvert.INSTANCE.convertList(menuList));
+        log.info(build.toString());
+        return build;
     }
 
     @Override

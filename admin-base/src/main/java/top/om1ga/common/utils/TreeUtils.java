@@ -17,22 +17,21 @@ public class TreeUtils {
     public static <T extends TreeNode<T>> List<T> build(List<T> treeNodes){
         List<T> result = new ArrayList<>();
 
-//        list转map
-        Map<Long,T> nodeMap = new LinkedHashMap<>(treeNodes.size());
-        for (T treeNode :
-                treeNodes) {
-            nodeMap.put(treeNode.getPid(), treeNode);
+        Map<Long, T> nodeMap = new LinkedHashMap<>(treeNodes.size());
+
+        for (T treeNode : treeNodes) {
+            nodeMap.put(treeNode.getId(), treeNode);
         }
 
-        for (T node :
-                nodeMap.values()) {
+        for (T node : nodeMap.values()) {
             T parent = nodeMap.get(node.getPid());
-            if (parent != null && !(node.getId().equals(parent.getId()))){
+            if (parent != null && !(node.getId().equals(parent.getId()))) {
                 parent.getChildren().add(node);
                 continue;
             }
             result.add(node);
         }
+
         return result;
     }
 
