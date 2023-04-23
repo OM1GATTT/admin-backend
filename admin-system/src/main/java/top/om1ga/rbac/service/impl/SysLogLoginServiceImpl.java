@@ -6,8 +6,13 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import top.om1ga.common.query.Query;
+import top.om1ga.common.utils.AddressUtils;
+import top.om1ga.common.utils.HttpContextUtils;
+import top.om1ga.common.utils.IpUtils;
 import top.om1ga.common.utils.PageResult;
 import top.om1ga.mybatis.service.impl.BaseServiceImpl;
 import top.om1ga.rbac.convert.SysLogLoginConvert;
@@ -51,12 +56,22 @@ public class SysLogLoginServiceImpl extends BaseServiceImpl<SysLogLoginDao, SysL
 
     @Override
     public void save(String username, Integer status, Integer operation) {
+//        获取请求对象
+        HttpServletRequest request = HttpContextUtils.getHttpServletRequest();
+//        从请求对象中获取请求地址、IP、UA 等信息
+        assert request != null;
+        String userAgent = request.getHeader(HttpHeaders.USER_AGENT);
+        String ip = IpUtils.getIpAddr(request);
+        String address = AddressUtils.getAddressByIP(ip);
+
         SysLogLoginEntity entity = new SysLogLoginEntity();
         entity.setUsername(username);
-//        TODO:后续换成工具类获取真实ID、地址
-        entity.setAddress("127.0.0.1");
-        entity.setAddress("南京");
+        entity.setIp(ip);
+        entity.setAddress(address);
+        entity.setUserAgent(userAgent);
         entity.setStatus(status);
         entity.setOperation(operation);
+
+        baseMapper.insert(entity);
     }
 }
